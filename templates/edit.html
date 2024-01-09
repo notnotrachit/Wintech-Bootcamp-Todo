@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="flex justify-center text-3xl my-5">
+    <span> Edit task </span>
+</div>
+
+<div class="flex justify-center my-5">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter your task" class="input input-bordered input-primary w-full max-w-xs my-5" name="task_name" id="task_name" value="{{ task.title }}"/>
+        <textarea class="textarea textarea-info" placeholder="Task Description" name="task_description" id="task_description">{{ task.description }}</textarea>
+        <div class="flex justify-center text-white my-5">
+        <button class="btn btn-primary text-white" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

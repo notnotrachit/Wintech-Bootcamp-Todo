@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import home
+from home.views import home, add_task, mark_complete, edit_task, completed_task, mark_incomplete, delete_task
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,4 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('accounts/', include('allauth.urls')),
+    path('add/', add_task, name='add_task'),
+    path('complete/<int:task_id>', mark_complete, name='mark_complete'),
+    path('incomplete/<int:task_id>', mark_incomplete, name='mark_incomplete'),
+    path('edit/<int:task_id>', edit_task, name='edit_task'),
+    path('delete/<int:task_id>', delete_task, name='delete_task'),
+    path('completed/', completed_task, name='completed_task')
 ]

@@ -8,19 +8,16 @@
                     <h2 class="card-title">{{ task.title }}</h2>
                     <p>{{ task.description }}</p>
                     <div class="card-actions justify-end">
-                    <a class="btn btn-primary" href="/complete/{{ task.id }}">Mark as Complete</a>
-                    <a class="btn btn-ghost" href="/edit/{{ task.id }}">Edit</a>
+                    <a class="btn btn-primary" href="/incomplete/{{ task.id }}">Mark as Not Complete</a>
+                    <a class="btn btn-error" href="/delete/{{ task.id }}">Delete</a>
                     </div>
                 </div>
                 </div>
             {% endfor %}
             </div>
 
-            <div class="flex justify-center">
-                <a href="/add" class="btn btn-primary">Add Task</a>
-            </div>
-
             <div class="flex justify-center my-10">
-                <a class="text-center btn btn-primary" href="/completed">Completed Tasks</a>
-            </div>
+                <a class="btn btn-primary" href="/">Back</a>
+            </div>            
+
 {% endblock %}
